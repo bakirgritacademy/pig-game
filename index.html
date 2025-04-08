@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv-SE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Game</title>
+    <style>
+        .hidden { display: none; }
+        #scoreboard th, #scoreboard td {
+          padding: 6px 12px;
+          border: 1px solid #ccc;
+          text-align: center;
+        }
+        #scoreboard {
+          margin-top: 20px;
+          border-collapse: collapse;
+        }
+    </style>
+    <script type="module" src="./js/script.js"></script>
+</head>
+<body>
+    <h1>Pig Game</h1>
+
+    <form id="startForm">
+      <label>Spelarnamn (kommaseparerade): 
+        <input type="text" id="names" placeholder="t.ex. Anna, Bo, Clara" required />
+      </label>
+      <label>Antal spelare:
+        <select id="playerCount">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </label>
+      <button type="submit">Starta spel</button>
+    </form>
+
+    <section id="gameSection" class="hidden">
+      <p id="currentPlayer"></p>
+      <p>Total poäng: <span id="totalScore">0</span></p>
+      <p>Omgångens poäng: <span id="roundScore">0</span></p>
+      <p>Antal spelade omgångar: <span id="rounds">0</span></p>
+      <p>Tärningskast: <span id="dice">-</span></p>
+
+      <img id="diceImage" src="./images/dice1.png" alt="Tärning" width="100" />
+
+      <button id="roll">Kasta tärningen</button>
+      <button id="hold">Frys poängen</button>
+
+      <table id="scoreboard">
+          <thead>
+              <tr>
+                  <th>Spelare</th>
+                  <th>Total poäng</th>
+                  <th>Omgångens poäng</th>
+              </tr>
+          </thead>
+          <tbody></tbody>
+      </table>
+
+      <p id="message"></p>
+      <button id="restart" class="hidden">Starta om</button>
+    </section>
+</body>
+</html>
